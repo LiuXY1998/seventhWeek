@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../第六周/js/jquery-3.4.1.min.js"></script>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .nav{
+        width: 100%;
+        height:40px;
+        background: #4ebbfe;
+    }
+    .nav > li{
+        height: 100%;
+        width: 20%;
+        float: left;
+        color: #ffffff;
+        line-height: 40px;
+        text-align: center;
+    }
+    .nav > li >ul{
+        background: #4ebbfe;
+        display: none;
+    }
+</style>
+<body>
+<ul class="nav">
+    <li>网站首页</li>
+    <li>个人博客日志
+        <ul class="slideDown">
+            <li>个人生活日志</li>
+            <li>个人学习日志</li>
+            <li>个人工作日志</li>
+        </ul>
+    </li>
+    <li>网站制作
+        <ul class="slideDown">
+            <li>html</li>
+            <li>css</li>
+            <li>js</li>
+        </ul>
+    </li>
+    <li>设计心得</li>
+    <li>关于我</li>
+</ul>
+
+<script>
+    $(function () {
+        let slideBtn = $('li:has(.slideDown)');
+        let slideDowns = $('.slideDown');
+        // slideBtn.on('mouseenter',function () {
+        //     let index = $(this).index('li:has(.slideDown)');
+        //
+        //     $(slideDowns[index].slideDown);
+        // });
+        //
+        // slideBtn.on('mouseleave',function () {
+        //     let index = $(this).index('li:has(.slideDown)');
+        //     // $(slideDowns[index]).slideUp();
+        //     slideDowns.eq(index).slideUp();
+        // });
+
+        // slideBtn.on('mouseenter mouseleave',function () {
+        //     let index = $(this).index('li:has(.slideDown)');
+        //     slideDowns.eq(index).slideToggle();
+        // });
+
+        // slideBtn.on('mouseenter' , function () {
+        //     $(this).children('.slideDown').slideDown();
+        // });
+        // slideBtn.on('mouseleave', function () {
+        //     $(this).children('.slideDown').slideUp();
+        // });
+        //
+        slideBtn.hover(function () {
+            $(this).children('.slideDown').slideToggle();
+        });
+
+    });
+</script>
+</body>
+</html>
